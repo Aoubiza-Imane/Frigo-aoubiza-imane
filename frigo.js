@@ -1,7 +1,7 @@
 //animation ouverture porte
-var element = document.querySelector(".derrierePorte");
-element.addEventListener("click", disappear);
+var ouverture = document.querySelector(".porte");
+ouverture.addEventListener("click", toggleDoor);
 
-function disappear() {
-    element.style.display = none;
+function toggleDoor() {
+    ouverture.classList.toggle("porteOuverte");
 }

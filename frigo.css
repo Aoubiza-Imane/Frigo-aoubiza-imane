@@ -1,71 +1,62 @@
-    #title {
-        text-align: center;
-        font-family: Verdana;
-    }
-    
-    #titre {
-        text-align: center;
-        background-color: rgb(255, 196, 206);
-    }
-    
-    body {
-        background-color: rgb(239, 236, 241);
-    }
-    
-    .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-    
-    .frigo {
-        /*s'affiche naturellement en block avec <div>*/
-        background: #221edf;
-        position: absolute;
-        border-radius: 4px;
-        width: 100%;
-        height: 100%;
-        padding: 5px;
-        /*display: inline-block;*/
-        vertical-align: top;
-        margin-left: auto;
-        margin-right: auto;
-        background-image: url("aluminiumb.jpg");
-        transform-origin: left;
-        /*vitesse de l'animation de la porte*/
-        transition: transform .45s;
-    }
-    
-    #poignee1 {
-        width: 50px;
-        height: 100px;
-        background: rgb(110, 83, 168);
-        /*propriété propriétaire de webkit (chrome safari android)*/
-        -webkit-border-radius: 100px / 160px;
-        /*propriété propriétaire de Mozilla*/
-        -moz-border-radius: 100px / 160px;
-        border-radius: 100px / 160px;
-        /*off-set x ||offset y|| blur-radius || spread-radius || color*/
-        box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-        position: absolute;
-        bottom: 20;
-        /*espace entre porte et poignée d'après attribut de position*/
-        right: 5%;
-    }
-    
-    .derrierePorte {
-        background-color: red;
-        position: relative;
-        width: 50%;
-        height: 100%;
-        margin: 0 auto;
-        margin-top: 50px;
-    }
-    
-    .frigo:hover {
-        /* création effet l'ouverture de la porte avec la perspective*/
-        transform: perspective(1200px) rotateY(-105deg);
-    }
+#title {
+    text-align: center;
+    font-family: Verdana;
+}
+
+#titre {
+    text-align: center;
+    background-color: rgb(255, 196, 206);
+}
+
+body {
+    background-color: rgb(239, 236, 241);
+}
+
+.frigo {
+    /*s'affiche naturellement en block avec <div>*/
+    background: #221edf;
+    position: relative;
+    border-radius: 4px;
+    width: 60%;
+    height: 60%;
+    padding: 5px;
+    /*display: inline-block;*/
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url("aluminiumb.jpg");
+    transform-origin: left;
+    transition: all 0.5s ease-in-out;
+    /*vitesse de l'animation de la porte*/
+}
+
+.poignee {
+    width: 50px;
+    height: 100px;
+    background: rgb(110, 83, 168);
+    -webkit-border-radius: 100px / 160px;
+    /*propriété propriétaire de webkit (chrome safari android)*/
+    -moz-border-radius: 100px / 160px;
+    /*propriété propriétaire de Mozilla*/
+    border-radius: 100px / 160px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    /*off-set x ||offset y|| blur-radius || spread-radius || color*/
+    position: absolute;
+    bottom: 20;
+    right: 5%;
+    /*espace entre porte et poignée d'après attribut de position*/
+}
+
+.derrierePorte {
+    background-color: red;
+    position: relative;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.porteOuverte {
+    /* création effet l'ouverture de la porte avec la perspective*/
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+}
