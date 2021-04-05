@@ -1,25 +1,26 @@
 //=================ANIMATIONS ET ESTHETIQUE==========================
 
-//initialisation --> éléments cachés
-document.getElementById("boutons").style.display = 'none';
 
 //animation porte qui s'ouvre
-var element = document.querySelector(".door");
+var element = document.querySelector(".porte");
 element.addEventListener("click", toggleDoor);
 
 
 
 function toggleDoor() {
-    element.classList.toggle("doorOpen");
+    element.classList.toggle("porteOuverte");
     setTimeout(function() { hideFridge() }, 3000);
 }
 
 
 //cacher le frigo pour accéder à l'intérieur
 function hideFridge() {
-    document.getElementsByClassName("door")[0].style.display = 'none';
-    document.getElementsByClassName("backDoor")[0].style.display = 'none'; //inherit pour afficher
-    document.getElementById("boutons").style.display = 'inherit';
+    document.getElementsByClassName("porte")[0].style.display = 'none';
+    document.getElementsByClassName("derriereporte")[0].style.display = 'none'; //inherit pour afficher
+    // document.getElementById("boutons").style.display = 'initial';
+    // document.getElementsByClassName("rectangle1").style.display = 'initial';
+    window.location.href = "frigo.html";
+    // addElements();
 }
 
 // // //background épileptique, à appeler en faisant animateBg(0);
@@ -29,7 +30,6 @@ function animateBg(i) {
         animateBg(++i)
     }, i);
 }
-
 
 //===========AUDIO==========
 // var audio = new Audio('01 LOVE ME RIGHT.mp3');

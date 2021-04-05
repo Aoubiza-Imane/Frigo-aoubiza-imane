@@ -1,0 +1,180 @@
+.frigo {
+    width: auto;
+    height: auto;
+    background: #069;
+}
+
+
+/* PERSONNALISATION DES BOUTONS  */
+
+#nomrecherche {
+    background-color: #e7bef8;
+    border: none;
+    color: #eed5cb;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+    margin-top: 1%;
+    margin-left: 30%;
+}
+
+#nombrerecherche {
+    background-color: #e7bef8;
+    border: none;
+    color: #eed5cb;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#boutonajout {
+    background-color: #C06C84;
+    border: none;
+    color: black;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#supprimerunproduit {
+    background-color: #C06C84;
+    border: none;
+    color: black;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#tableauproduits {
+    background-color: #C06C84;
+    border: 10px inset black;
+    border-spacing: red;
+    height: 700px;
+    width: 600px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    border-inline-color: red;
+}
+
+#tableauproduits tr {
+    top: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border: red;
+}
+
+#plus {
+    background-color: #803449;
+    border: none;
+    color: white;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#moins {
+    background-color: #803449;
+    border: none;
+    color: white;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#supprimer {
+    background-color: #C06C84;
+    border: none;
+    color: black;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+#modifier {
+    background-color: #C06C84;
+    border: none;
+    color: black;
+    padding: default;
+    border: #6C5B7B;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: default;
+}
+
+
+/* BARRE DE NAVIGATION DU HAUT  */
+
+.topnav {
+    background-color: rgb(180, 55, 87);
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/* Stylise les liens dans la barre de navigation */
+
+.topnav a {
+    top: 0%;
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+/* Change la couleur des liens avec hover */
+
+.topnav a:hover {
+    background-color: #6C5B7B;
+    color: black;
+    text-decoration: underline red;
+}
+
+
+/* Ajouter une couleur au lien actif */
+
+.topnav a.active {
+    background-color: #C06C84;
+    color: WHITE;
+}
+
+body {
+    background: linear-gradient(0deg, rgb(28, 116, 204) 0%, #355C7D 100%);
+    /* background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 148, 253, 1) 100%); */
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
