@@ -1,5 +1,7 @@
 .derriereporte {
-    background-color: #333;
+    background-color: #f88195;
+    border: thin inset #000000;
+    border-spacing: red;
     /* position: relative; */
     width: 300px;
     height: 400px;
@@ -21,13 +23,13 @@
 }
 
 .poignee {
-    background: #311717;
+    background: #000000;
     left: 100%;
     bottom: 55%;
     right: 1000%;
     width: 20px;
     height: 70px;
-    margin-bottom: 200px;
+    margin-bottom: 130px;
     top: 70%;
     position: sticky;
     display: inline-block;

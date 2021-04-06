@@ -28,16 +28,19 @@ function afficherAliment() {
             for (i of dataJSON) {
                 //mise en place du tableau dynamique avec suppression des produits
                 tableauproduits.innerHTML = tableauproduits.innerHTML +
+                    "<div class=\" boutons\"" +
                     "<tr>" +
                     "<td>" + i.nom + "</td>" +
                     "<td>" + i.qte + "</td>" +
-                    "<td> <input type='button' id='plus'value='+'/> <td>" +
-                    "<td> <input type='button' id='moins'value='-'/> <td>" + //on récupère l'id du produit pour le déf en tant qu'id du bouton
-                    "<td> <input type='button' id='" + i.id + "'value = 'Poubelle' name='poubelle'/>" +
-                    "<td> <input type='text' id='modifnom" + i.id + "' value='' placeholder ='Modifier le nom' name='modifnom' style=\"width:92px\"/> <td>" +
-                    "<td> <input type='number' id='modifnombre" + i.id + "' value='' placeholder ='Modifier la quantité' name='modifnombre'style=\"width:130px\"/>  <td>" +
-                    "<td> <input type='button' id='" + i.id + "' value='Modifier' name='modifier'/> <td>" +
-                    "</tr>"
+                    //on récupère l'id du produit pour le déf en tant qu'id du bouton/formulaire
+                    "<td> <input type='button' id='" + i.id + "' class= \"plus\" value='+' name = 'plus' nomproduitplus ='" + i.nom + "' qteproduitplus='" + i.qte + "'/> <td>" +
+                    "<td> <input type='button' id='" + i.id + "' class= \"moins\"value='-' name = 'moins' nomproduitmoins ='" + i.nom + "' qteproduitmoins='" + i.qte + "'/>  <td>" + //on récupère l'id du produit pour le déf en tant qu'id du bouton
+                    "<td> <input type='button' id='" + i.id + "'class= \"poubelle\"value = 'Poubelle' name='poubelle'/>" +
+                    "<td> <input type='text' id='modifnom" + i.id + "' class= \"modifnom\"value='' placeholder ='Modifier le nom' name='modifnom' style=\"width:95px\"/> <td>" +
+                    "<td> <input type='number' id='modifnombre" + i.id + "' class= \"modifnombre\"value='' placeholder ='Modifier la quantité' name='modifnombre'style=\"width:135px\"/>  <td>" +
+                    "<td> <input type='button' id='" + i.id + "' class= \"modifier\"value='Modifier' name='modifier'/> <td>" +
+                    "</tr>" +
+                    "</div>"
             }
 
             //==========LISTENERS=============
@@ -56,7 +59,21 @@ function afficherAliment() {
                 boutonind.addEventListener("click", modif);
             }
 
+            //on crée une liste de rassemblement des boutons plus
+            //on ajoute à chacun un listener click avec déclenchement de la fonction ajoutbtn
+            let listPlus = document.getElementsByName("plus");
+            for (let boutonind of listPlus) {
+                boutonind.addEventListener("click", ajoutbtn);
+            }
+
+            //on crée une liste de rassemblement des boutons moins
+            //on ajoute à chacun un listener click avec déclenchement de la fonction soustrairebtn
+            let listMoins = document.getElementsByName("moins");
+            for (let boutonind of listMoins) {
+                boutonind.addEventListener("click", soustrairebtn);
+            }
         })
+        .catch((error) => console.log(error));
 }
 
 //===========FONCTIONS ASSOCIEES AUX LISTENERS===========//
@@ -71,13 +88,33 @@ function boutonsup(e) {
 //fonction déclenchée avec les boutons modifier
 
 function modif(e) {
-    var newnom = document.getElementById("modifnom" + e.target.id).value;
+    var newname = document.getElementById("modifnom" + e.target.id).value;
     var newqte = document.getElementById("modifnombre" + e.target.id).value;
-    modifierAliment(e.target.id, newnom, newqte);
+    modifierAliment(e.target.id, newname, newqte);
     afficherAliment();
 }
 
+//fonction déclenchée avec les boutons plus
 
+function ajoutbtn(e) {
+    var qteproduit = Number.parseInt(e.target.attributes.qteproduitplus.value) + 1;
+    var nomproduit = e.target.attributes.nomproduitplus.value;
+    modifierAliment(e.target.id, nomproduit, qteproduit);
+    afficherAliment();
+
+}
+
+//fonction déclenchée avec les boutons moins
+
+function soustrairebtn(e) {
+    qteproduit = Number.parseInt(e.target.attributes.qteproduitmoins.value);
+    var nomproduit = e.target.attributes.nomproduitmoins.value;
+    if (qteproduit <= 1) {
+        supprimerAliment(e.target.id);
+    } else qteproduit = qteproduit - 1;
+    modifierAliment(e.target.id, nomproduit, qteproduit);
+    afficherAliment();
+}
 
 
 //Afficher les produits dans le frigo  avec le bouton " Afficher les produits"
@@ -135,7 +172,7 @@ function supprimerAliment(id) {
 //Supprimer un produit au serveur avec les formulaires
 
 document.getElementById("supprimerunproduit").onclick = function() {
-    supprimerAliment(id);
+    supprimerAliment(e.id);
 }
 
 //=========Modifier des produits: METHODE PUT=============//
