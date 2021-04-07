@@ -3,7 +3,10 @@
 let myHeaders = new Headers;
 myHeaders.append("Content-Type", "application/json");
 var url = "https://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigo/public/3/produits";
-document.getElementById("tableauproduits").style.display = 'none';
+
+//masquer le tableau dynamique et ses bordures
+document.getElementById("tableauproduits").style.display = 'hidden';
+document.getElementById("tableauproduits").style.borderStyle = 'none';
 
 //=======apprentissage=========
 // mettre \" \" pour que les " ne soient pas pris en compte #js
@@ -35,7 +38,7 @@ function afficherAliment() {
                     //on récupère l'id du produit pour le déf en tant qu'id du bouton/formulaire
                     "<td> <input type='button' id='" + i.id + "' class= \"plus\" value='+' name = 'plus' nomproduitplus ='" + i.nom + "' qteproduitplus='" + i.qte + "'/> <td>" +
                     "<td> <input type='button' id='" + i.id + "' class= \"moins\"value='-' name = 'moins' nomproduitmoins ='" + i.nom + "' qteproduitmoins='" + i.qte + "'/>  <td>" + //on récupère l'id du produit pour le déf en tant qu'id du bouton
-                    "<td> <input type='button' id='" + i.id + "'class= \"poubelle\"value = 'Poubelle' name='poubelle'/>" +
+                    "<td> <input type='button' id='" + i.id + "'class= \"poubelle\"value = '' name='poubelle'/>" +
                     "<td> <input type='text' id='modifnom" + i.id + "' class= \"modifnom\"value='' placeholder ='Modifier le nom' name='modifnom' style=\"width:95px\"/> <td>" +
                     "<td> <input type='number' id='modifnombre" + i.id + "' class= \"modifnombre\"value='' placeholder ='Modifier la quantité' name='modifnombre'style=\"width:135px\"/>  <td>" +
                     "<td> <input type='button' id='" + i.id + "' class= \"modifier\"value='Modifier' name='modifier'/> <td>" +
@@ -120,8 +123,11 @@ function soustrairebtn(e) {
 //Afficher les produits dans le frigo  avec le bouton " Afficher les produits"
 document.getElementById("afficherlesproduits").onclick = function() {
     afficherAliment();
+    document.getElementById("tableauproduits").style.display = 'table';
+    document.getElementById("tableauproduits").style.borderStyle = 'solid';
 }
-document.getElementById("tableauproduits").style.display = 'table';
+
+
 
 //Ajouter un produit au serveur avec les formulaires
 

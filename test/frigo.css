@@ -29,10 +29,14 @@
 
 #nomrecherche:hover {
     background-color: #622a3a;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-#nomrecherche:active {
-    margin: transparent;
+
+/* pour enlever le liséré blanc hideux, on utilise focus et outline  */
+
+#nomrecherche:focus {
+    outline: none;
 }
 
 #nombrerecherche {
@@ -55,18 +59,18 @@
 
 #nombrerecherche:hover {
     background-color: #622a3a;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-#nombrerecherche:active {
-    margin: transparent;
+#nombrerecherche:focus {
+    outline: none;
 }
 
 #boutonajout {
     background-color: #803449;
-    border: none;
     color: white;
     padding: default;
-    border: #6C5B7B;
+    border: #8136c2;
     text-align: left;
     text-decoration: none;
     display: inline-block;
@@ -77,7 +81,16 @@
 
 #boutonajout:hover {
     background-color: #622a3a;
+    border: thin solid #355c7d;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#boutonjout:focus {
+    outline: none;
+}
+
+#boutonjout:active {
+    outline: none;
 }
 
 #supprimerunproduit {
@@ -99,20 +112,49 @@
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+#supprimerunproduit:focus {
+    outline: none;
+}
+
 #tableauproduits {
-    background-color: rgb(109, 71, 71);
-    border: 10px solid #000000;
+    border: 5px solid #000000;
     border-spacing: red;
-    height: 700px;
-    width: 600px;
+    /* height: 700px;
+    width: 600px; */
     position: relative;
     top: 0px;
     left: 0px;
+    margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
     border-inline-color: red;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#tableauproduits thead {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tableauproduits td {
+    top: 0px;
+    left: 0px;
+    color: rgb(1, 28, 104);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border: thin solid purple;
+    border-radius: 2%;
+}
+
+#tableauproduits tr {
+    top: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border-radius: 2%;
 }
 
 
@@ -124,7 +166,16 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    border: thin solid purple;
+    border: thin solid rgb(68, 0, 68);
+    border-radius: 2%;
+}
+
+.tableauproduits tr {
+    top: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
     border-radius: 2%;
 }
 
@@ -172,14 +223,14 @@
 }
 
 .poubelle:hover {
-    background-color: #213c53;
+    background-color: #803449;
     opacity: 1;
 }
 
 .modifier {
     background-color: #803449;
     border: none;
-    color: honeydew;
+    color: white;
     padding: default;
     border: #6C5B7B;
     text-align: left;
@@ -194,56 +245,57 @@
 }
 
 .modifnom {
-    background-color: #803449;
-    border: none;
+    background-color: #355c7d;
+    border: thin solid #803449;
     color: white;
     padding: default;
-    border: #6C5B7B;
     border-radius: 2px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: default;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: thin solid #355c7d;
 }
 
 .modifnom:hover {
-    background-color: #622a3a;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #213c53;
 }
 
 .modifnom::placeholder {
     color: white;
 }
 
+.modifnom:focus {
+    outline: none;
+}
+
 .modifnombre {
-    background-color: #803449;
-    border: none;
+    background-color: #355c7d;
     color: white;
     padding: default;
-    border: #6C5B7B;
+    border: thin solid #803449;
     border-radius: 2px;
     text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: default;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: thin solid #355c7d;
 }
 
 .modifnombre:hover {
-    background-color: #622a3a;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #213c53;
 }
 
 .modifnombre::placeholder {
     color: white;
 }
 
+.modifnombre:focus {
+    outline: none;
+}
+
 #afficherlesproduits {
     background-color: #803449;
-    border: none;
     color: white;
     padding: default;
     border: #8136c2;
@@ -259,6 +311,10 @@
     background-color: #622a3a;
     border: thin solid #355c7d;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#afficherlesproduits:focus {
+    outline: none;
 }
 
 
@@ -300,6 +356,57 @@
 .topnav a.active {
     background-color: #C06C84;
     color: WHITE;
+}
+
+#barrederecherche {
+    background-color: #803449;
+    border: none;
+    color: white;
+    padding: default;
+    border: #6C5B7B;
+    margin-top: 1.5%;
+    text-align: left;
+    text-decoration: none;
+    display: inline;
+    font-size: default;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#barrederecherche::placeholder {
+    color: white;
+}
+
+#barrederecherche:hover {
+    background-color: #622a3a;
+    border: thin solid #355c7d;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#barrederecherche:focus {
+    outline: none;
+}
+
+#boutonrecherche {
+    background-color: #803449;
+    color: white;
+    padding: default;
+    border: #8136c2;
+    text-align: left;
+    text-decoration: none;
+    display: inline;
+    font-size: default;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: thin solid #355c7d;
+}
+
+#boutonrecherche:hover {
+    background-color: #622a3a;
+    border: thin solid #355c7d;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#boutonrecherche:focus {
+    outline: none;
 }
 
 body {
