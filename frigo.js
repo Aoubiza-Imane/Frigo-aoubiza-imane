@@ -239,3 +239,47 @@ function modifierAliment(id, n, q) {
 
         })
 }
+//=======RECHERCHER DES ALIMENTS ================
+// function rechercheProduits() {
+//     let recherche = document.getElementById("barrederecherche").value;
+//     if (recherche === "") {
+//         afficherAliment();
+//     } else {
+//         let url =
+//             "https://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigo/public/3/produits?search=" +
+//             recherche;
+
+//         fetch(url)
+//             .then((response) => {
+//                 return response.json();
+//             })
+//             .then((dataJSON) => {
+//                 let liste =
+//                     "<thead><tr><th>Aliments</th><th>Quantité</th><th>Modification<th/></tr></thead>";
+//                 for (let r of dataJSON) {
+//                     liste +=
+//                         "<tr><td>" +
+//                         r.nom +
+//                         '</td><td><input type="number" id="modifnombre' +
+//                         r.id +
+//                         '" value=' +
+//                         r.qte +
+//                         '></td><td><input type="button" id="' +
+//                         r.id +
+//                         '" value="mettre à jour" onclick="modifierAliment(' +
+//                         r.id + ',' + r.nom + ',' + r.qte +
+//                         ')"><input type="button" id="sup' +
+//                         r.id +
+//                         '" value="supprimer" onclick="supprimerAliment(' +
+//                         r.id +
+//                         ')"></td></tr>';
+//                 }
+//                 document.getElementById("tableauproduits").innerHTML = liste;
+//             })
+//             .catch((error) => {
+//                 console.log(error);
+//             });
+//     }
+// }
+// //====Listener sur c'est parti !
+// document.getElementById("boutonrecherche").addEventListener('click', rechercheProduits);

@@ -5,6 +5,8 @@
 var element = document.querySelector(".porte");
 element.addEventListener("click", toggleDoor);
 
+//Audio pour l'ouverture de la porte
+
 
 
 function toggleDoor() {

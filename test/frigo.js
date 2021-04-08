@@ -31,19 +31,17 @@ function afficherAliment() {
             for (i of dataJSON) {
                 //mise en place du tableau dynamique avec suppression des produits
                 tableauproduits.innerHTML = tableauproduits.innerHTML +
-                    "<div class=\" boutons\"" +
                     "<tr>" +
                     "<td>" + i.nom + "</td>" +
                     "<td>" + i.qte + "</td>" +
                     //on récupère l'id du produit pour le déf en tant qu'id du bouton/formulaire
-                    "<td> <input type='button' id='" + i.id + "' class= \"plus\" value='+' name = 'plus' nomproduitplus ='" + i.nom + "' qteproduitplus='" + i.qte + "'/> <td>" +
-                    "<td> <input type='button' id='" + i.id + "' class= \"moins\"value='-' name = 'moins' nomproduitmoins ='" + i.nom + "' qteproduitmoins='" + i.qte + "'/>  <td>" + //on récupère l'id du produit pour le déf en tant qu'id du bouton
-                    "<td> <input type='button' id='" + i.id + "'class= \"poubelle\"value = '' name='poubelle'/>" +
-                    "<td> <input type='text' id='modifnom" + i.id + "' class= \"modifnom\"value='' placeholder ='Modifier le nom' name='modifnom' style=\"width:95px\"/> <td>" +
-                    "<td> <input type='number' id='modifnombre" + i.id + "' class= \"modifnombre\"value='' placeholder ='Modifier la quantité' name='modifnombre'style=\"width:135px\"/>  <td>" +
-                    "<td> <input type='button' id='" + i.id + "' class= \"modifier\"value='Modifier' name='modifier'/> <td>" +
-                    "</tr>" +
-                    "</div>"
+                    "<td><input type='button' id='" + i.id + "' class= \"plus\" value='+' name = 'plus' nomproduitplus ='" + i.nom + "' qteproduitplus='" + i.qte + "'/><td>" +
+                    "<td> <input type='button' id='" + i.id + "' class= \"moins\"value='-' name = 'moins' nomproduitmoins ='" + i.nom + "' qteproduitmoins='" + i.qte + "'/>  <td>" +
+                    "<td><input type='button' id='" + i.id + "'class= \"poubelle\"value = '' name='poubelle'/>" +
+                    "<td><input type='text' id='modifnom" + i.id + "' class= \"modifnom\"value='' placeholder ='Modifier le nom' name='modifnom' style=\"width:95px\"/><td>" +
+                    "<td><input type='number' id='modifnombre" + i.id + "' class= \"modifnombre\"value='' placeholder ='Modifier la quantité' name='modifnombre'style=\"width:135px\"/><td>" +
+                    "<td><input type='button' id='" + i.id + "' class= \"modifier\"value='Modifier' name='modifier'/><td>" +
+                    "</tr>"
             }
 
             //==========LISTENERS=============
@@ -79,7 +77,7 @@ function afficherAliment() {
         .catch((error) => console.log(error));
 }
 
-//===========FONCTIONS ASSOCIEES AUX LISTENERS===========//
+//===========FONCTIONS ASSOCIEES AUX LISTENERS D'AFFICHAGE===========//
 
 
 //fonction déclenchée avec les boutons poubelles
@@ -93,8 +91,16 @@ function boutonsup(e) {
 function modif(e) {
     var newname = document.getElementById("modifnom" + e.target.id).value;
     var newqte = document.getElementById("modifnombre" + e.target.id).value;
-    modifierAliment(e.target.id, newname, newqte);
-    afficherAliment();
+    if (newname == '') {
+        alert("Veuillez remplir le champ du nom s'il vous plaît");
+    }
+    if (newqte == null) {
+        alert("Veuillez remplir le champ de la quantité s'il vous plaît");
+    }
+    if (newname !== '' && newqte !== null) {
+        modifierAliment(e.target.id, newname, newqte);
+        afficherAliment();
+    }
 }
 
 //fonction déclenchée avec les boutons plus
@@ -127,23 +133,24 @@ document.getElementById("afficherlesproduits").onclick = function() {
     document.getElementById("tableauproduits").style.borderStyle = 'solid';
 }
 
-
-
 //Ajouter un produit au serveur avec les formulaires
 
 document.getElementById("boutonajout").onclick = function() {
     var nom = document.getElementById("nomrecherche").value;
     var quantite = document.getElementById("nombrerecherche").value;
-    ajouterAliment(nom, quantite);
+    bordure();
+    if (quantite <= 0) {
+        alert("Vous ne pouvez pas ajouter un produit nul ou négatif")
+    } else {
+        ajouterAliment(nom, quantite);
+    }
 }
-
 
 
 //============Ajouter des produits : Méthode POST =========//
 
 function ajouterAliment(nom, q) {
     var produit = { nom: nom, qte: q }
-
     const fetchOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -157,7 +164,9 @@ function ajouterAliment(nom, q) {
             afficherAliment();
 
         })
+
 }
+
 
 //=======Supprimer des produits : Méthode DELETE ==========//
 
@@ -200,4 +209,44 @@ function modifierAliment(id, n, q) {
 
 
         })
+}
+
+//=======RECHERCHER DES ALIMENTS ================
+function rechercheProduits() {
+    let recherche = document.getElementById("barrederecherche").value;
+    if (recherche === "") {
+        afficherAliment();
+    } else {
+        let url =
+            "https://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigo/public/3/produits?search=" +
+            recherche;
+
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((dataJSON) => {
+                let liste = "";
+                for (let r of dataJSON) {
+                    liste +=
+                        "<tr><td>" +
+                        r.nom +
+                        "</td><td>" +
+                        r.qte +
+                        "</td></tr>";
+                }
+                document.getElementById("tableauproduits").innerHTML = liste;
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+}
+//====Listener sur c'est parti !
+document.getElementById("boutonrecherche").addEventListener('click', bordure);
+document.getElementById("boutonrecherche").addEventListener('click', rechercheProduits);
+
+//fonction pour afficher la bordure lors de la recherche
+function bordure() {
+    document.getElementById("tableauproduits").style.borderStyle = 'solid';
 }
