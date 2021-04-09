@@ -1,3 +1,15 @@
+body {
+    background: linear-gradient(#e66465, #9198e5);
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+
 /* PERSONNALISATION DES BOUTONS  */
 
 #nomrecherche {
@@ -11,7 +23,6 @@
     display: inline-block;
     font-size: default;
     margin-top: 1%;
-    margin-left: 20%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     border: thin solid #355c7d;
 }
@@ -406,21 +417,4 @@
 
 #boutonrecherche:focus {
     outline: none;
-}
-
-body {
-    /* background: linear-gradient(0deg, rgba(53, 92, 125, 1) 0%, rgba(192, 108, 132, 1) 100%); */
-    background: linear-gradient(#e66465, #9198e5);
-    /* background: linear-gradient(0deg, rgba(65, 69, 148, 1) 15%, rgba(112, 24, 120, 1) 65%); */
-    /* background: linear-gradient(0deg, rgba(163, 211, 246, 1) 0%, rgba(65, 69, 148, 1) 7%, rgba(112, 24, 120, 1) 100%); */
-    /* rgb(127, 212, 255) */
-    /* 0deg, rgb(28, 116, 204) 0%, #355C7D 100% */
-    /* background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 148, 253, 1) 100%); */
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
 }

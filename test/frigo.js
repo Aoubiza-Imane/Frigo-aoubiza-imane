@@ -1,3 +1,6 @@
+//Annonces
+
+alert("Bienvenue, je vous invite à activer le son afin de profiter pleinement de l'expérience");
 //Variables communes aux méthodes
 
 let myHeaders = new Headers;
@@ -8,8 +11,6 @@ var url = "https://webmmi.iut-tlse3.fr/~jean-marie.pecatte/frigo/public/3/produi
 document.getElementById("tableauproduits").style.display = 'hidden';
 document.getElementById("tableauproduits").style.borderStyle = 'none';
 
-//=======apprentissage=========
-// mettre \" \" pour que les " ne soient pas pris en compte #js
 
 //=============Récupérer les produits : Méthode GET========
 
