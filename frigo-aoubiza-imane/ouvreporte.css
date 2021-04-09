@@ -1,0 +1,62 @@
+.derriereporte {
+    background-color: #f88195;
+    border: thin inset #000000;
+    border-spacing: red;
+    /* position: relative; */
+    width: 300px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.porte {
+    background: rgb(184, 15, 10);
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 400px;
+    transform-origin: left;
+    /*Vitesse de l'animation de porte*/
+    transition: all 0.8s ease-in-out;
+}
+
+.poignee {
+    background: #000000;
+    left: 100%;
+    bottom: 55%;
+    right: 1000%;
+    width: 20px;
+    height: 70px;
+    margin-bottom: 130px;
+    top: 70%;
+    position: sticky;
+    display: inline-block;
+}
+
+
+/* pour centrer le frigo au milieu de la page */
+
+.contenu {
+    /* pousser de la moitié de hauteur de viewport */
+    margin-top: 50vh;
+    /* tirer de la moitié de sa propre hauteur */
+    transform: translateY(-50%);
+}
+
+.porteOuverte {
+    /*perspective crée l'effet porte qui s'ouvre*/
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+}
+
+body {
+    background: linear-gradient(#e66465, #9198e5);
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}

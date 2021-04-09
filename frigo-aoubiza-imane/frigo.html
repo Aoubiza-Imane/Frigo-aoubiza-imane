@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Frigo de l'Alhambra</title>
+    <link href="frigo.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="alhambra.png" />
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="ouvreporte.html">Accueil</a>
+        <input type="text" id="barrederecherche" placeholder="Rechercher" />
+        <input type="button" id="boutonrecherche" value="C'est parti !" />
+        <input type="button" id="afficherlesproduits" value="Afficher les produits">
+    </div>
+    <div id="boutons">
+
+    </div>
+    <div id="formulaire">
+        <input type="text" id="nomrecherche" placeholder="Produit à ajouter" />
+        <input type="number" id="nombrerecherche" placeholder="Quantité" />
+        <input type="button" id="boutonajout" value="Ajouter ce(s) produit(s)" />
+    </div>
+    <div id="produits">
+        <table class='tableauproduits' id="tableauproduits">
+        </table>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <audio controls loop="true">
+            <source src="Caress.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas les fichiers audio
+          </audio>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="frigo.js">
+    </script>
+</body>
+</hmtl>
